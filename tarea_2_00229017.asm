@@ -1,20 +1,16 @@
 org 100h
 
-section .text
+;Primer ejercicio: 00229017-> (2+2+9+0+1+7)/6 -> 21/6 = 3.5
 
-      mov di, 0d
-      mov cx, [len]
 
-lupi: mov bl, [comnt + di]
-      mov [di + 200h], bl
-      inc di
-      loop lupi
+mov ax, 0000h
 
-      int 200h
+add ax, 2d
+add ax, 2d
+add ax, 9d
+add ax, 1d
+add ax, 7d
 
-section .data
+mov cl, 6d
 
-comnt .data
-
-comnt db    "Me recupero"
-len   equ   $-comnt
+div cl ;R=3 -> Hay salud
