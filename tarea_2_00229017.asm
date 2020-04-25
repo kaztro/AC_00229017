@@ -32,4 +32,9 @@ mov [207h], cl
 mov cl, "d"
 mov [208h], cl
 
+;Segundo ejercicio: 
 
+mov     ax, 0000h
+mov     al, 2d
+mov     bx, 210h
+mov     cx, 2d
