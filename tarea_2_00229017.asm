@@ -1,6 +1,6 @@
 org 100h
 
-;Primer ejercicio: 00229017-> (2+2+9+0+1+7)/6 -> 21/6 = 3.5
+;primceller ejercicio: 00229017-> (2+2+9+0+1+7)/6 -> 21/6 = 3.5
 
 
 mov ax, 0000h
@@ -32,27 +32,25 @@ mov [207h], cl
 mov cl, "d"
 mov [208h], cl
 
-;Segundo ejercicio: 
+;Segcellundo ejercicio: 
 
 mov     ax, 0000h
 mov     al, 2d
 mov     bx, 210h
 mov     cx, 2d
 
-estima: mul     cx
+estTot: mul     cx
+        mov [bx], ax
+        cmp ah, 00h
+        ja segcell
+        cmp ah, 00h
+        je primcell
 
-mov [bx], ax
-cmp ah, 00h
-ja seg
-je prim
+segcell: add bx, 2h
+         jmp n
 
-seg: add bx, 2h
+primcell: add bx, 1h
 
-jmp s
-
-prim: add bx, 1h
-
-s: cmp bx, 21Fh
-
-jb estima
-int 10h
+n: cmp bx, 21Fh
+   jb estTot
+   int 10h
