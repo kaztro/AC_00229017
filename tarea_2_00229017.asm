@@ -49,7 +49,6 @@ primcell: add bx, 1h
 
 n: cmp bx, 21Fh
     jb estTot
-    int 10h
 
 ;Tercer ejercicio: 
 mov ax, 0000h
