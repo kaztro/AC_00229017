@@ -63,14 +63,15 @@ mov     [221h], ax      ;Condicion(1) = 1
 mov     bx, 222h
 
 fibi:  mov ax, 0000h
-            mov     [bx], ax
-            sub     bx, 2h
-            mov     al, [bx]
-            add     bx, 1h
-            add     ax, [bx]
-            add     bx, 1h
-            mov     [bx], ax
-            add     bx, 1h
-            jb      fibi
-
+            mov [bx], ax
+            sub bx, 2h
+            mov al, [bx]
+            add bx, 1h
+            add ax, [bx]
+            add bx, 1h
+            mov [bx], ax
+            add bx, 1h
+            cmp bx, 22Fh
+            jb  fibi
+            
             int 20h
