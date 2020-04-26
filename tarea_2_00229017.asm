@@ -1,8 +1,6 @@
 org 100h
 
-;primceller ejercicio: 00229017-> (2+2+9+0+1+7)/6 -> 21/6 = 3.5
-
-
+;primer ejercicio: 00229017-> (2+2+9+0+1+7)/6 -> 21/6 = 3.5
 ;mov ax, 0000h
 
 ;add ax, 2d
@@ -35,24 +33,32 @@ org 100h
 ;mov [208h], cl
 
 ;Segundo ejercicio: 
+;mov     ax, 0000h
+;mov     al, 2d
+;mov     bx, 210h
+;mov     cx, 2d
 
-mov     ax, 0000h
-mov     al, 2d
-mov     bx, 210h
-mov     cx, 2d
+;estTot: mul     cx
+;        mov [bx], ax
+;        cmp ah, 00h
+;        ja segcell
+;        cmp ah, 00h
+;        je primcell
 
-estTot: mul     cx
-        mov [bx], ax
-        cmp ah, 00h
-        ja segcell
-        cmp ah, 00h
-        je primcell
+;segcell: add bx, 2h
+;         jmp n
 
-segcell: add bx, 2h
-         jmp n
+;primcell: add bx, 1h
 
-primcell: add bx, 1h
+;n: cmp bx, 21Fh
+;    jb estTot
+;    int 10h
 
-n: cmp bx, 21Fh
-    jb estTot
-    int 10h
+;Tercer ejercicio: 
+mov ax, 0000h
+mov     ax, 0d
+mov     [220h], ax      ;Condicion(0) = 0
+mov     ax, 1d
+mov     [221h], ax      ;Condicion(1) = 1
+mov     bx, 222h
+
