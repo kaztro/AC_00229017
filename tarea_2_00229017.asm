@@ -38,3 +38,21 @@ mov     ax, 0000h
 mov     al, 2d
 mov     bx, 210h
 mov     cx, 2d
+
+estima: mul     cx
+
+mov [bx], ax
+cmp ah, 00h
+ja seg
+je prim
+
+seg: add bx, 2h
+
+jmp s
+
+prim: add bx, 1h
+
+s: cmp bx, 21Fh
+
+jb estima
+int 10h
