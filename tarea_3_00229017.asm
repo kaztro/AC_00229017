@@ -6,26 +6,25 @@ section .text
 	call 	texto	
 	call 	cursor
 
-	mov	ah, 4d
+	mov	ah, 7d
 	mov	[200h], ah
-	mov 	ah, 17d
+	mov 	ah, 7d
 	mov	[210h], ah
 	call 	phr1
 
-	mov	ah, 13d
+	mov	ah, 12d
 	mov	[200h], ah
-	mov 	ah, 40d
+	mov 	ah, 32d
 	mov	[210h], ah
 	call 	phr2
 
-	mov	ah, 21d
+	mov	ah, 17d
 	mov	[200h], ah
-	mov 	ah, 5d
+	mov 	ah, 7d
 	mov	[210h], ah
 	call 	phr3
 
 	call	kbwait
-
 	int 	20h
 
 texto:	mov 	ah, 00h
@@ -86,6 +85,7 @@ lupi3:	mov 	cl, [line3+di]
 	cmp 	di, len3
 	jb	lupi3
 	ret
+
 
 section .data
 line1	db 	"Anata no shashin o mite miru(Mirando tu foto)"
